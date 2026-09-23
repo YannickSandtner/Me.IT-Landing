@@ -1,2 +1,2 @@
 # Me.IT-Landing
-Landingpage for Intellectual-Twi 
+Landingpage for Intellectual-Twin
