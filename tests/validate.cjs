@@ -111,6 +111,10 @@ if (html && css && js) {
   // 8. Form topic options remain aligned with the use cases
   check(html.includes('value="medical-risk-assessment"'), 'Form option value="medical-risk-assessment" missing');
   check(html.includes('value="benefits-assessment"'), 'Form option value="benefits-assessment" missing');
+    // 8b. Contact emails sit with each person
+  check(html.includes('href="mailto:Florian.Liepe@eraneos.com"'), "Florian contact email missing");
+  check(html.includes('href="mailto:Oliver.Huefner@eraneos.com"'), "Oliver contact email missing");
+  check((html.match(/class="contact-email"/g) || []).length === 2, "Expected exactly 2 contact-email links (one per person)");
 
   // 9. Styles present for the original structure
   check(css.includes(".value-card"), "Missing .value-card styles in styles.css");
