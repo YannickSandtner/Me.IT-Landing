@@ -92,7 +92,7 @@ if (html && css && js) {
   const cardBlocks = html.match(/<article class="value-card reveal">[\s\S]*?<\/article>/g) || [];
   check(cardBlocks.length === 4, `Expected 4 closed use-case card blocks, found ${cardBlocks.length}`);
 
-  const requiredLines = ["01 · Komposit", "02 · Leben", "03 · Kranken", "04 · Übergreifend"];
+  const requiredLines = ["01 · Komposit", "02 · Leben", "03 · Industrie", "04 · Übergreifend"];
   requiredLines.forEach((name) => {
     check(html.includes(`data-de="${name}"`), `Expected use-case card missing: ${name}`);
   });
@@ -111,7 +111,8 @@ if (html && css && js) {
   // 8. Form topic options remain aligned with the use cases
   check(html.includes('value="medical-risk-assessment"'), 'Form option value="medical-risk-assessment" missing');
   check(html.includes('value="benefits-assessment"'), 'Form option value="benefits-assessment" missing');
-    // 8b. Contact emails sit with each person
+
+  // 8b. Contact emails sit with each person
   check(html.includes('href="mailto:Florian.Liepe@eraneos.com"'), "Florian contact email missing");
   check(html.includes('href="mailto:Oliver.Huefner@eraneos.com"'), "Oliver contact email missing");
   check((html.match(/class="contact-email"/g) || []).length === 2, "Expected exactly 2 contact-email links (one per person)");
@@ -143,4 +144,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log("Validation passed: original page structure intact, 4 use-case cards (Komposit/Leben/Kranken/übergreifend), no client-brand references, bilingual pairs consistent.");
+console.log("Validation passed: original page structure intact, 4 use-case cards (Komposit/Leben/Industrie/übergreifend), no client-brand references, bilingual pairs consistent.");
